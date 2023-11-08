@@ -61,26 +61,26 @@ struct SignUpUI: View {
             VStack(spacing:24) {
                 InputView(text: $fullname,
                           title: "Full Name",
-                          placeholder: "Enter your name")
+                          placeholder: "Enter your name", showEyeButton: false)
                 .autocorrectionDisabled(true)
                 
                 InputView(text: $email,
                           title: "Email Address",
-                          placeholder: "name@example.com")
+                          placeholder: "name@example.com", showEyeButton: false)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 
                 InputView(text: $password,
                           title: "Password",
                           placeholder: "Enter your password",
-                          isSecureField: true)
+                          showEyeButton: true)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 
                 InputView(text: $confirmpassword,
                           title: "Confirm Password",
                           placeholder: "Confirm your password",
-                          isSecureField: true)
+                          showEyeButton: true)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 

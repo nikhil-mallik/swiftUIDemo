@@ -12,7 +12,6 @@ struct LoginUI: View {
     @State private var password = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
-    @State private var showPassword = false
     @EnvironmentObject var viewModel: AuthViewModel
     
     // Function for validation
@@ -30,7 +29,6 @@ struct LoginUI: View {
         } else {
             return true
         }
-        
         self.showAlert = true
         return false
     }
@@ -49,13 +47,14 @@ struct LoginUI: View {
                 VStack(spacing:24) {
                     InputView(text: $email,
                               title: "Email Address",
-                              placeholder: "name@example.com")
+                              placeholder: "name@example.com",
+                              showEyeButton: false)
                     .autocorrectionDisabled(true)
                     .autocapitalization(.none)
                     InputView(text: $password,
                               title: "Password",
                               placeholder: "Enter your password",
-                              isSecureField: true)
+                             showEyeButton: true)
                     .autocorrectionDisabled(true)
                     .autocapitalization(.none)
                 }
