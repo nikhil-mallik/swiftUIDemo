@@ -11,7 +11,8 @@ struct InputView: View {
     @Binding var text: String
     let title: String
     let placeholder: String
-    var isSecureField = false
+    @State private var isSecureField = true
+    let showEyeButton: Bool // Added parameter
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -20,20 +21,27 @@ struct InputView: View {
                 .fontWeight(.semibold)
                 .font(.footnote)
             
-            if isSecureField {
-                SecureField(placeholder, text: $text)
-                    .font(.system(size: 14))
-            } else {
-                TextField(placeholder, text: $text)
-                    .font(.system(size: 14))
+            HStack {
+                if isSecureField {
+                    SecureField(placeholder, text: $text)
+                        .font(.system(size: 14))
+                } else {
+                    TextField(placeholder, text: $text)
+                        .font(.system(size: 14))
+                }
+                
+                if showEyeButton { 
+                    Button(action: {
+                        isSecureField.toggle()
+                    }) {
+                        Image(systemName: isSecureField ? "eye.slash" : "eye")
+                            .foregroundColor(.secondary)
+                    }
+                }
             }
+            
             Divider()
                 .foregroundColor(.black)
         }
     }
 }
-
-#Preview {
-    InputView(text: .constant(""), title: "email", placeholder: "enter email")
-}
-
