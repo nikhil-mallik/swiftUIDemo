@@ -16,4 +16,3 @@ var passwordNotMatch = "Confirm password does not match"
 var emptyFullName = "Please enter the full name"
 var notValidFullName = "Invalid name format"
 var somethingWrong = "Something went wrong. Please try again."
-
