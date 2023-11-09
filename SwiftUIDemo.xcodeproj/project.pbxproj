@@ -30,7 +30,6 @@
 		7DB1F5782AFB483700E0623E /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5722AFB483700E0623E /* HexagonParameters.swift */; };
 		7DB1F5792AFB483700E0623E /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5732AFB483700E0623E /* Badge.swift */; };
 		7DB1F57A2AFB483700E0623E /* HikeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5742AFB483700E0623E /* HikeBadge.swift */; };
-		7DB1F57F2AFB485100E0623E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F57B2AFB485100E0623E /* LoginView.swift */; };
 		7DB1F5802AFB485100E0623E /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F57C2AFB485100E0623E /* LoginScreen.swift */; };
 		7DB1F5822AFB485100E0623E /* LoginUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F57E2AFB485100E0623E /* LoginUI.swift */; };
 		7DB1F5862AFB486200E0623E /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5832AFB486200E0623E /* SignUpScreen.swift */; };
@@ -84,7 +83,6 @@
 		7DB1F5722AFB483700E0623E /* HexagonParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
 		7DB1F5732AFB483700E0623E /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		7DB1F5742AFB483700E0623E /* HikeBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HikeBadge.swift; sourceTree = "<group>"; };
-		7DB1F57B2AFB485100E0623E /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7DB1F57C2AFB485100E0623E /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		7DB1F57E2AFB485100E0623E /* LoginUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUI.swift; sourceTree = "<group>"; };
 		7DB1F5832AFB486200E0623E /* SignUpScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
@@ -351,7 +349,6 @@
 			children = (
 				7DB1F57C2AFB485100E0623E /* LoginScreen.swift */,
 				7DB1F57E2AFB485100E0623E /* LoginUI.swift */,
-				7DB1F57B2AFB485100E0623E /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -504,7 +501,6 @@
 				7DB1F5992AFB489300E0623E /* ProfileUIView.swift in Sources */,
 				7DB1F55E2AFB47E000E0623E /* Landmark.swift in Sources */,
 				7D5DE75C2AFB9EF700E63768 /* Validator.swift in Sources */,
-				7DB1F57F2AFB485100E0623E /* LoginView.swift in Sources */,
 				7DB1F5772AFB483700E0623E /* BadgeBackground.swift in Sources */,
 				7DB1F5602AFB47E000E0623E /* ModelData.swift in Sources */,
 				7DB1F5872AFB486200E0623E /* SignUpView.swift in Sources */,

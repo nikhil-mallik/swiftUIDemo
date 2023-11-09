@@ -12,42 +12,14 @@ struct SignUpUI: View {
     @State private var password = ""
     @State private var confirmpassword = ""
     @State private var fullname = ""
-    @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var showAlert = false
+    @State private var isNotSecure = false
+    @State private var isPasswordSecure = true
+    @State private var isConfirmPasswordSecure = true
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: AuthViewModel
-    
-    // Function for validation
-    func validateInputs() -> Bool {
-        if self.fullname.isEmpty {
-            self.alertMessage = emptyFullName
-        } else if (self.fullname.isValidFullName() != nil) {
-            self.alertMessage = notValidFullName
-        } else if self.email.isEmpty {
-            self.alertMessage = emptyEmail
-        } else if (self.email.isValidEmail() != nil) {
-            self.alertMessage = notValidEmail
-        } else if self.password.isEmpty {
-            self.alertMessage = emptyPassword
-        } else if (self.password.isValidPassword() != nil) {
-            self.alertMessage = notValidPassword
-        } else if self.confirmpassword.isEmpty {
-            self.alertMessage = emptyConfirmPassword
-        } else if self.password != self.confirmpassword {
-            self.alertMessage = passwordNotMatch
-        } else if let error = viewModel.errorMessage {
-            self.alertMessage = error
-        } else {
-            return true
-        }
-
-        self.showAlert = true
-        return false
-    }
-
-
-    
-    
+   
     var body: some View {
         VStack {
             // image
@@ -61,26 +33,32 @@ struct SignUpUI: View {
             VStack(spacing:24) {
                 InputView(text: $fullname,
                           title: "Full Name",
-                          placeholder: "Enter your name")
+                          placeholder: "Enter your name",
+                          isSecureField: $isNotSecure,
+                          showEyeButton: false)
                 .autocorrectionDisabled(true)
                 
                 InputView(text: $email,
                           title: "Email Address",
-                          placeholder: "name@example.com")
+                          placeholder: "name@example.com",
+                          isSecureField: $isNotSecure,
+                          showEyeButton: false)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 
                 InputView(text: $password,
                           title: "Password",
                           placeholder: "Enter your password",
-                          isSecureField: true)
+                          isSecureField: $isPasswordSecure,
+                          showEyeButton: true)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 
                 InputView(text: $confirmpassword,
                           title: "Confirm Password",
                           placeholder: "Confirm your password",
-                          isSecureField: true)
+                          isSecureField: $isConfirmPasswordSecure,
+                          showEyeButton: true)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 
@@ -93,7 +71,7 @@ struct SignUpUI: View {
         
         // sign in button
         Button {
-            if validateInputs() {
+            if validateInputs(fullname: fullname, email: email, password: password, confirmpassword: confirmpassword, viewModel: viewModel, alertMessage: &alertMessage, showAlert: &showAlert) {
                 Task {
                     await viewModel.createUser(withEmail: email, password: password, fullname: fullname, confirmpassword: confirmpassword)
                     self.showAlert = true
