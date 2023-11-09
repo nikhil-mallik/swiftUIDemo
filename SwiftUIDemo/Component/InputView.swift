@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct InputView: View {
-    @Binding var text: String
-    let title: String
-    let placeholder: String
-    @State private var isSecureField = true
-    let showEyeButton: Bool // Added parameter
+    @Binding var text: String           // Parameter for the text field
+    let title: String                   // Parameter for the title field
+    let placeholder: String             // Parameter for the placeholder/ hint
+    @Binding var isSecureField: Bool    // Parameter for the secure field
+    let showEyeButton: Bool             // Parameter for eye the button
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -22,7 +22,7 @@ struct InputView: View {
                 .font(.footnote)
             
             HStack {
-                if isSecureField {
+                if isSecureField && showEyeButton {
                     SecureField(placeholder, text: $text)
                         .font(.system(size: 14))
                 } else {
@@ -30,7 +30,7 @@ struct InputView: View {
                         .font(.system(size: 14))
                 }
                 
-                if showEyeButton { 
+                if showEyeButton {
                     Button(action: {
                         isSecureField.toggle()
                     }) {

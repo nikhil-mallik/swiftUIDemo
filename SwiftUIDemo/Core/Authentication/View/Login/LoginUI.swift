@@ -12,27 +12,10 @@ struct LoginUI: View {
     @State private var password = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var isNotSecure = false
+    @State private var isSecure = true
     @EnvironmentObject var viewModel: AuthViewModel
-    
-    // Function for validation
-    func validateInputs() -> Bool {
-        if self.email.isEmpty {
-            self.alertMessage = emptyEmail
-        } else if (self.email.isValidEmail() != nil) {
-            self.alertMessage = notValidEmail
-        } else if self.password.isEmpty {
-            self.alertMessage = emptyPassword
-        } else if (self.password.isValidPassword() != nil) {
-            self.alertMessage = notValidPassword
-        } else if let error = viewModel.errorMessage {
-            self.alertMessage = error
-        } else {
-            return true
-        }
-        self.showAlert = true
-        return false
-    }
-    
+ 
     var body: some View {
         NavigationStack {
             VStack {
@@ -48,12 +31,14 @@ struct LoginUI: View {
                     InputView(text: $email,
                               title: "Email Address",
                               placeholder: "name@example.com",
+                              isSecureField: $isNotSecure,
                               showEyeButton: false)
                     .autocorrectionDisabled(true)
                     .autocapitalization(.none)
                     InputView(text: $password,
                               title: "Password",
                               placeholder: "Enter your password",
+                              isSecureField: $isSecure,
                              showEyeButton: true)
                     .autocorrectionDisabled(true)
                     .autocapitalization(.none)
@@ -63,7 +48,7 @@ struct LoginUI: View {
                 
                 // sign in button
                 Button {
-                    if validateInputs() {
+                    if validateInputs(fullname: nil, email: email, password: password, confirmpassword: nil, viewModel: viewModel, alertMessage: &alertMessage, showAlert: &showAlert) {
                         Task {
                             await viewModel.signIn(withEmail: email, password: password)
                             self.showAlert = true
@@ -101,8 +86,6 @@ struct LoginUI: View {
             }
         }
     }
-    
-    
 }
 
 #Preview {
