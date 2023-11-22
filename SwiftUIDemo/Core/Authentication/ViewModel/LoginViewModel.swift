@@ -19,7 +19,6 @@ class LoginViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
             else {
-                print("Logged In")
                 self.isLoggedIn = true
             }
         }

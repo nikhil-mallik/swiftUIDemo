@@ -23,7 +23,7 @@ struct SignUpUI: View {
     var body: some View {
         VStack {
             // image
-            Image("login")
+            Image(signupImage)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 200, height: 120)
@@ -32,31 +32,31 @@ struct SignUpUI: View {
             // form fields
             VStack(spacing:24) {
                 InputView(text: $fullname,
-                          title: "Full Name",
-                          placeholder: "Enter your name",
+                          title: fullNameTitle,
+                          placeholder: namePlaceholder,
                           isSecureField: $isNotSecure,
                           showEyeButton: false)
                 .autocorrectionDisabled(true)
                 
                 InputView(text: $email,
-                          title: "Email Address",
-                          placeholder: "name@example.com",
+                          title: emailTitle,
+                          placeholder: emailPlaceholder,
                           isSecureField: $isNotSecure,
                           showEyeButton: false)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 
                 InputView(text: $password,
-                          title: "Password",
-                          placeholder: "Enter your password",
+                          title: passwordTitle,
+                          placeholder: passwordPlaceholder,
                           isSecureField: $isPasswordSecure,
                           showEyeButton: true)
                 .autocorrectionDisabled(true)
                 .autocapitalization(.none)
                 
                 InputView(text: $confirmpassword,
-                          title: "Confirm Password",
-                          placeholder: "Confirm your password",
+                          title: confirmPasswordTitle,
+                          placeholder: confirmPasswordPlaceholder,
                           isSecureField: $isConfirmPasswordSecure,
                           showEyeButton: true)
                 .autocorrectionDisabled(true)
@@ -79,14 +79,14 @@ struct SignUpUI: View {
             }
         } label: {
             HStack {
-                Text("SIGN UP")
+                Text(signUpTitle)
                     .fontWeight(.semibold)
-                Image(systemName: "arrow.right")
+                Image(systemName: arrowRightIcon)
             }
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width - 32, height: 48)
         }
-        .modifier(AlertModifier(isShowingAlert: $showAlert, title: "Alert", message: self.alertMessage, primaryButtonTitle: "OK", secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
+        .modifier(AlertModifier(isShowingAlert: $showAlert, title: alertTitle, message: self.alertMessage, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
         .background(Color(.black))
         .cornerRadius(10)
         .padding(.top, 24)
@@ -98,8 +98,8 @@ struct SignUpUI: View {
             dismiss()
         } label: {
             HStack(spacing: 3) {
-                Text("Already have an account?")
-                Text("Sign in")
+                Text(alreadyAccountText)
+                Text(signInTitle)
                     .fontWeight(.bold)
             }
             .foregroundColor(.black)

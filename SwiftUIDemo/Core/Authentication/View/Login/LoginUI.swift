@@ -20,7 +20,7 @@ struct LoginUI: View {
         NavigationStack {
             VStack {
                 // image
-                Image("login")
+                Image(loginImage)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 200, height: 200)
@@ -29,15 +29,15 @@ struct LoginUI: View {
                 // form fields
                 VStack(spacing:24) {
                     InputView(text: $email,
-                              title: "Email Address",
-                              placeholder: "name@example.com",
+                              title: emailTitle,
+                              placeholder: emailPlaceholder,
                               isSecureField: $isNotSecure,
                               showEyeButton: false)
                     .autocorrectionDisabled(true)
                     .autocapitalization(.none)
                     InputView(text: $password,
-                              title: "Password",
-                              placeholder: "Enter your password",
+                              title: passwordTitle,
+                              placeholder: passwordPlaceholder,
                               isSecureField: $isSecure,
                              showEyeButton: true)
                     .autocorrectionDisabled(true)
@@ -56,9 +56,9 @@ struct LoginUI: View {
                     }
                 } label: {
                     HStack {
-                        Text("SIGN IN")
+                        Text(signInTitle)
                             .fontWeight(.semibold)
-                        Image(systemName: "arrow.right")
+                        Image(systemName: arrowRightIcon)
                     }
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 32, height: 48)
@@ -66,7 +66,7 @@ struct LoginUI: View {
                 .background(Color(.black))
                 .cornerRadius(10)
                 .padding(.top, 24)
-                .modifier(AlertModifier(isShowingAlert: $showAlert, title: "Alert", message: self.alertMessage, primaryButtonTitle: "OK", secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
+                .modifier(AlertModifier(isShowingAlert: $showAlert, title: alertTitle, message: self.alertMessage, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
                 
                 Spacer()
                 
@@ -76,8 +76,8 @@ struct LoginUI: View {
                         .navigationBarBackButtonHidden(true)
                 } label: {
                     HStack(spacing: 3) {
-                        Text("Don't have an account?")
-                        Text("Sign up")
+                        Text(doNotAccountText)
+                        Text(signUpTitle)
                             .fontWeight(.bold)
                     }
                     .foregroundColor(.black)
