@@ -88,7 +88,10 @@ struct SlotSpinner: View {
                                 .clipShape(.capsule)
                         })
                         .disabled(self.credits < 5)
-                        .modifier(AlertModifier(isShowingAlert: $showAlert, title: wonTitle, message: gotMatch, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
+                        .modifier(AlertModifier(isShowingAlert: $showAlert, title: wonTitle, message: gotMatch, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: {
+                            self.showAlert = false
+                            self.processSpinResult()
+                       }, secondaryAction: nil))
                         
                         // Text
                         Text("\(betAmount) credits")
@@ -111,7 +114,10 @@ struct SlotSpinner: View {
                                 .clipShape(.capsule)
                         })
                         .disabled(self.credits < 25)
-                        .modifier(AlertModifier(isShowingAlert: $showAlert, title: wonTitle, message: gotMatch, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
+                        .modifier(AlertModifier(isShowingAlert: $showAlert, title: wonTitle, message: gotMatch, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: {
+                            self.showAlert = false
+                            self.processSpinResult(true)
+                        }, secondaryAction: nil))
                         
                         // Text
                         Text("\(betAmount * 5) credits")
