@@ -13,6 +13,7 @@ struct SlotSpinner: View {
     @State private var numbers = Array(repeating: 0, count: 9)
     @State private var backgrounds = Array(repeating: Color.white, count: 9)
     @State private var showAlert = false
+    @State private var showAnnimation = false
     @State private var credits = 1000
     private var betAmount = 5
     
@@ -43,8 +44,11 @@ struct SlotSpinner: View {
                 Text("Credits: " + String(credits))
                     .foregroundStyle(Color.black)
                     .padding(.all, 10)
-                    .background(backgrounds[0].opacity(0.5))
+                    .background(showAnnimation ? Color.green.opacity(0.5) : backgrounds[0].opacity(0.5))
                     .cornerRadius(20.0)
+                    .scaleEffect(showAnnimation ? 1.2 : 1)
+                    
+                    
                 
                 // Spacer
                 Spacer()
@@ -130,6 +134,7 @@ struct SlotSpinner: View {
                 Spacer()
             }
         }
+        .animation(.easeOut)
     }
     
     func processSpinResult(_ isMax:Bool = false) {
@@ -181,10 +186,16 @@ struct SlotSpinner: View {
             if isMatch(2, 4, 6) { matches += 1 }
         }
         
+        // Reseting the annimation
+        self.showAnnimation = false
+        
         // Check matches and distribute credits
         if matches > 0 {
             // At least 1 win
             self.credits += matches * betAmount * 3
+            
+            // Annimation effect
+            self.showAnnimation = true
             
         } else if !isMax {
             // 0 wins, single spin
@@ -205,7 +216,7 @@ struct SlotSpinner: View {
             self.backgrounds[index3] = Color.green
             
             // Showing the alert
-            self.showAlert = true
+//            self.showAlert = true
             
             return true
         }
