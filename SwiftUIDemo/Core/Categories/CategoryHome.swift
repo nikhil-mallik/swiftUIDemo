@@ -27,19 +27,22 @@ struct CategoryHome: View {
                 .listRowInsets(EdgeInsets())
             }
             .listStyle(.inset)
-            .navigationTitle("Featured")
-            .toolbar {
-                Button {
-                    showingProfile.toggle()
-                } label: {
-                    Label("User Profile", systemImage: "person.crop.circle")
-                }
-            }
-            .sheet(isPresented: $showingProfile) {
-                ProfileUIView(profile: UserProfile.MOCK_USER)
-                    
-            }
-            .transition(.slide)
+//            .navigationTitle("Featured")
+            .ignoresSafeArea(edges: .top)
+            .padding(.top, 5)
+            
+//            .toolbar {
+//                Button {
+//                    showingProfile.toggle()
+//                } label: {
+//                    Label("User Profile", systemImage: "person.crop.circle")
+//                }
+//            }
+//            .sheet(isPresented: $showingProfile) {
+//                ProfileUIView(profile: UserProfile.MOCK_USER)
+//                    
+//            }
+//            .transition(.slide)
         }
     }
 }

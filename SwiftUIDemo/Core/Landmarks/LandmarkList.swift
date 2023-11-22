@@ -21,19 +21,21 @@ struct LandmarkList: View {
         NavigationView {
             List {
                 Toggle(isOn: $showFavoritesOnly) {
-                    Text("Favorites only")
+                    Text(favoriteOnly)
                 }
                 
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
                         LandmarkDetail(landmark: landmark)
                     } label: {
-                         LandmarkRow(landmark: landmark)
+                        LandmarkRow(landmark: landmark)
                     }
                 }
             }
-            .navigationTitle("Landmarks")
         }
+        .padding(.top, 5)
+        .listStyle(.inset)
+        
     }
 }
 

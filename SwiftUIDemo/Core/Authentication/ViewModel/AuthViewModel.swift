@@ -30,8 +30,7 @@ class AuthViewModel: ObservableObject {
             self.userSession = result.user
             await fetchUser()
         } catch {
-            errorMessage = "Failed to login \n\(error.localizedDescription)"
-            print("DEBUG: Failed to login in with error \(error.localizedDescription)")
+            errorMessage = "\(loginFailed) \n\(error.localizedDescription)"
         }
     }
     
@@ -44,20 +43,17 @@ class AuthViewModel: ObservableObject {
             try await Firestore.firestore().collection("Users").document(user.id).setData(encodedUser)
             await fetchUser()
         } catch {
-            errorMessage = "Failed to create user \n \(error.localizedDescription)"
-            print("DEBUG: Failed to create user with error \(error.localizedDescription)")
+            errorMessage = "\(createUserFailed) \n\(error.localizedDescription)"
         }
     }
     
     func signOut() {
         do {
-            print("Signing Out")
             try Auth.auth().signOut()
             self.userSession = nil
             self.currentUser = nil
         } catch {
-            errorMessage = "Failed to sign out \n\(error.localizedDescription)"
-            print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
+            errorMessage = "\(signOutFailed) \n\(error.localizedDescription)"
         }
     }
     
@@ -65,7 +61,6 @@ class AuthViewModel: ObservableObject {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let snapshot = try? await Firestore.firestore().collection("Users").document(uid).getDocument() else { return }
         self.currentUser = try? snapshot.data(as: User.self)
-        
         print("DEBUG: Current user is \(String(describing: self.currentUser))")
     }
 }

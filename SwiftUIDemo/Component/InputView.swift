@@ -34,7 +34,7 @@ struct InputView: View {
                     Button(action: {
                         isSecureField.toggle()
                     }) {
-                        Image(systemName: isSecureField ? "eye.slash" : "eye")
+                        Image(systemName: isSecureField ? eyeSlashIcon : eyeIcon)
                             .foregroundColor(.secondary)
                     }
                 }

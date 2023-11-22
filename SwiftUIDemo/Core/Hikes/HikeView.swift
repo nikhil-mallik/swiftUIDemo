@@ -41,7 +41,7 @@ struct HikeView: View {
                         showDetail.toggle()
                     }
                 } label: {
-                    Label("Graph", systemImage: "chevron.right.circle")
+                    Label(garphTitle, systemImage: rightCircleIcon)
                         .labelStyle(.iconOnly)
                         .imageScale(.large)
                         .rotationEffect(.degrees(showDetail ? 90 : 0))
