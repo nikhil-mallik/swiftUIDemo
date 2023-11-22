@@ -14,13 +14,13 @@ struct ProfileUIView: View {
     var profile: UserProfile
     
     var body: some View {
-//        if let user = viewModel.currentUser {
+        if let user = viewModel.currentUser {
             ScrollView {
                 VStack(alignment: .leading) {
                     Section {
                         HStack(spacing: 4) {
-                            Text(UserProfile.MOCK_USER.initials)
-//                            Text(user.initials)
+//                            Text(UserProfile.MOCK_USER.initials)
+                            Text(user.initials)
                                 .font(.title)
                                 .fontWeight(.semibold)
                                 .foregroundStyle(Color(.white))
@@ -29,13 +29,13 @@ struct ProfileUIView: View {
                                 .clipShape(Circle())
                             
                             VStack(alignment: .leading, spacing: 4 ) {
-                                Text(UserProfile.MOCK_USER.fullname)
-//                                Text(user.fullname)
+//                                Text(UserProfile.MOCK_USER.fullname)
+                                Text(user.fullname)
                                     .font(.subheadline)
                                     .fontWeight(.semibold)
                                     .padding(.top, 4)
-                                Text(UserProfile.MOCK_USER.email)
-//                                Text(user.email)
+//                                Text(UserProfile.MOCK_USER.email)
+                                Text(user.email)
                                     .font(.footnote)
                                     .foregroundStyle(Color(.gray))
                             }
@@ -102,7 +102,7 @@ struct ProfileUIView: View {
                 .padding()
             }
         }
-//    }
+    }
 }
 
 #Preview {
