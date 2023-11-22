@@ -10,16 +10,19 @@ import SwiftUI
 struct SlotSpinner: View {
     
     @State private var images = ["twinlake", "rainbowlake", "umbagog"]
-    @State private var numbers = [1, 2, 0]
-    @State private var backgrounds = [Color.white, Color.white, Color.white]
+    @State private var numbers = Array(repeating: 0, count: 9)
+    @State private var backgrounds = Array(repeating: Color.white, count: 9)
     @State private var showAlert = false
     @State private var credits = 1000
     private var betAmount = 5
     
-    
     var body: some View {
+        
         ZStack {
+            // background
             RectangleBg()
+            
+            // Title
             VStack{
                 Spacer()
                 HStack {
@@ -33,64 +36,175 @@ struct SlotSpinner: View {
                 }
                 .scaleEffect(2)
                 
+                // Spacer
                 Spacer()
                 
+                // display the credit
                 Text("Credits: " + String(credits))
                     .foregroundStyle(Color.black)
                     .padding(.all, 10)
                     .background(backgrounds[0].opacity(0.5))
                     .cornerRadius(20.0)
                 
+                // Spacer
                 Spacer()
                 
-                HStack {
-                    CardView(image: $images[numbers[0]], background: $backgrounds[0])
-                    CardView(image: $images[numbers[1]], background: $backgrounds[1])
-                    CardView(image: $images[numbers[2]], background: $backgrounds[2])
-                    
+                // Card View display
+                VStack {
+                    HStack {
+                        CardView(image: $images[numbers[0]], background: $backgrounds[0])
+                        CardView(image: $images[numbers[1]], background: $backgrounds[1])
+                        CardView(image: $images[numbers[2]], background: $backgrounds[2])
+                    }
+                    HStack {
+                        CardView(image: $images[numbers[3]], background: $backgrounds[3])
+                        CardView(image: $images[numbers[4]], background: $backgrounds[4])
+                        CardView(image: $images[numbers[5]], background: $backgrounds[5])
+                    }
+                    HStack {
+                        CardView(image: $images[numbers[6]], background: $backgrounds[6])
+                        CardView(image: $images[numbers[7]], background: $backgrounds[7])
+                        CardView(image: $images[numbers[8]], background: $backgrounds[8])
+                    }
                 }
+                
+                // Spacer
                 Spacer()
                 
-                Button(action: {
-                    // Set Background back to white
-                    self.backgrounds = self.backgrounds.map { _ in
-                        Color.white
-                    }
-                    // Change the images
-                    self.numbers = self.numbers.map { _ in
-                        Int.random(in: 0...self.images.count - 1)
+                // Spin Button
+                HStack(spacing: 50) {
+                    // Only middle row spin Button
+                    VStack {
+                        Button(action: {
+                            // Process for Single middle row spin
+                            self.processSpinResult()
+                        }, label: {
+                            Text(spinButtonTitle)
+                                .bold()
+                                .foregroundStyle(Color.white)
+                                .padding(.all, 10)
+                                .padding([.leading, .trailing], 30)
+                                .background(credits < 5 ? Color.gray : Color.pink)
+                                .clipShape(.capsule)
+                        })
+                        .disabled(self.credits < 5)
+                        .modifier(AlertModifier(isShowingAlert: $showAlert, title: wonTitle, message: gotMatch, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
+                        
+                        // Text
+                        Text("\(betAmount) credits")
+                            .padding(.top, 10)
+                            .font(.footnote)
                     }
                     
-                    //Check winnings
-                    if self.numbers[0] == self.numbers[1] && self.numbers[1] == self.numbers[2] {
+                    // Max Spin Button
+                    VStack {
+                        Button(action: {
+                            // Process for max spin all card
+                            self.processSpinResult(true)
+                        }, label: {
+                            Text(maxSpinButtonTitle)
+                                .bold()
+                                .foregroundStyle(Color.white)
+                                .padding(.all, 10)
+                                .padding([.leading, .trailing], 30)
+                                .background(credits < 25 ? Color.gray : Color.pink)
+                                .clipShape(.capsule)
+                        })
+                        .disabled(self.credits < 25)
+                        .modifier(AlertModifier(isShowingAlert: $showAlert, title: wonTitle, message: gotMatch, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
                         
-                        
-                        //Won
-                        self.credits += betAmount * 10
-                        
-                        // Set Background to Green
-                        self.backgrounds = self.backgrounds.map { _ in
-                            Color.green
-                        }
-                        self.showAlert = true
-                    } else {
-                        self.credits -= betAmount
+                        // Text
+                        Text("\(betAmount * 5) credits")
+                            .padding(.top, 10)
+                            .font(.footnote)
                     }
-                    
-                }, label: {
-                    Text(spinButtonTitle)
-                        .bold()
-                        .foregroundStyle(Color.white)
-                        .padding(.all, 10)
-                        .padding([.leading, .trailing], 30)
-                        .background(Color.pink)
-                        .clipShape(.capsule)
-                })
-                .modifier(AlertModifier(isShowingAlert: $showAlert, title: wonTitle, message: gotMatch, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: { self.showAlert = false }, secondaryAction: nil))
+                }
+                
+                // Spacer
                 Spacer()
             }
-            
         }
+    }
+    
+    func processSpinResult(_ isMax:Bool = false) {
+        // Set Background back to white
+        self.backgrounds = self.backgrounds.map { _ in
+            Color.white
+        }
+        
+        if isMax {
+            // Change all the cards
+            self.numbers = self.numbers.map { _ in
+                Int.random(in: 0...self.images.count - 1)
+            }
+        } else {
+            // Change middle row cards only
+            self.numbers[3] = Int.random(in: 0...self.images.count - 1)
+            self.numbers[4] = Int.random(in: 0...self.images.count - 1)
+            self.numbers[5] = Int.random(in: 0...self.images.count - 1)
+        }
+        
+        //Check winnings
+        processWin(isMax)
+        
+    }
+    func processWin(_ isMax:Bool = false) {
+        
+        var matches = 0
+        
+        if !isMax {
+            // Processing for single spin means middle row only
+            if isMatch(3, 4, 5) { matches += 1 }
+            
+        } else {
+            // Processing for max spin means all cards
+            
+            // Top row
+            if isMatch(0, 1, 2) { matches += 1 }
+            
+            // Middle row
+            if isMatch(3, 4, 5) { matches += 1 }
+            
+            // Buttom row
+            if isMatch(6, 7, 8) { matches += 1 }
+            
+            // Topleft to Buttomright
+            if isMatch(0, 4, 8) { matches += 1 }
+            
+            // TopRight to Buttomleft
+            if isMatch(2, 4, 6) { matches += 1 }
+        }
+        
+        // Check matches and distribute credits
+        if matches > 0 {
+            // At least 1 win
+            self.credits += matches * betAmount * 3
+            
+        } else if !isMax {
+            // 0 wins, single spin
+            self.credits -= betAmount
+            
+        } else {
+            // 0 wins, max spin
+            self.credits -= betAmount * 5
+        }
+    }
+    func isMatch(_ index1:Int, _ index2:Int, _ index3:Int) -> Bool {
+        
+        if self.numbers[index1] == self.numbers[index2] && self.numbers[index2] == self.numbers[index3] {
+            
+            // Set Background to Green
+            self.backgrounds[index1] = Color.green
+            self.backgrounds[index2] = Color.green
+            self.backgrounds[index3] = Color.green
+            
+            // Showing the alert
+            self.showAlert = true
+            
+            return true
+        }
+        
+        return false
     }
 }
 
