@@ -15,8 +15,8 @@ struct ProfileUIView: View {
     
     var body: some View {
         if let user = viewModel.currentUser {
-        ScrollView {
-            VStack(alignment: .leading) {
+            ScrollView {
+                VStack(alignment: .leading) {
                     Section {
                         HStack(spacing: 4) {
 //                            Text(UserProfile.MOCK_USER.initials)
@@ -41,59 +41,66 @@ struct ProfileUIView: View {
                             }
                         }
                     }
-//                Divider()
-//                Section {
-//                    VStack(alignment: .leading, spacing: 4 ) {
-//                        
-//                        Text("Notifications: \(profile.prefersNotifications ? "On" : "Off")")
-//                        Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
-//                        Text("Goal Date: ") + Text(profile.goalDate, style: .date)
-//                    }
-//                }
-                Divider()
-                Section("Completed Badges") {
-                    VStack(alignment: .leading) {
-                        
-                        ScrollView(.horizontal) {
-                            HStack {
-                                HikeBadge(name: "First Hike")
-                                HikeBadge(name: "Earth Day")
-                                    .hueRotation(Angle(degrees: 90))
-                                HikeBadge(name: "Tenth Hike")
-                                    .grayscale(0.5)
-                                    .hueRotation(Angle(degrees: 45))
+                    
+                    //                Divider()
+                    //
+                    //                Section {
+                    //                    VStack(alignment: .leading, spacing: 4 ) {
+                    //
+                    //                        Text("Notifications: \(profile.prefersNotifications ? "On" : "Off")")
+                    //                        Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
+                    //                        Text("Goal Date: ") + Text(profile.goalDate, style: .date)
+                    //                    }
+                    //                }
+                    
+                    Divider()
+                    
+                    Section(sessionCompleteBadges) {
+                        VStack(alignment: .leading) {
+                            
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    HikeBadge(name: firstHike)
+                                    HikeBadge(name: earthDay)
+                                        .hueRotation(Angle(degrees: 90))
+                                    HikeBadge(name: tenthHike)
+                                        .grayscale(0.5)
+                                        .hueRotation(Angle(degrees: 45))
+                                }
+                                .padding(.bottom)
                             }
-                            .padding(.bottom)
                         }
                     }
-                }
-                Divider()
-                
-                Section("Recent Hikes") {
-                    HikeView(hike: modelData.hikes[0])
-                }
-                Divider()
-                Section("Account") {
-                    Button {
-                        showAlert.toggle()
-                        
-                    } label: {
-                        SettingRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: .red)
-                    }
-                    .modifier(AlertModifier(isShowingAlert: $showAlert, title: "Logout Alert", message: "Sure you want to logout ?", primaryButtonTitle: "No", secondaryButtonTitle: "Yes", primaryAction: { self.showAlert = false }, secondaryAction: {  viewModel.signOut()}))
-                }
-            }
-            .padding()
-        }
-        } else {
-            Section("Account") {
-                Button {
-                    showAlert.toggle()
                     
-                } label: {
-                    SettingRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: .red)
+                    Divider()
+                    
+                    Section(sessionRecentHikes) {
+                        HikeView(hike: modelData.hikes[0])
+                    }
+                    
+                    Divider()
+                    
+                    Section(sessionAdditionalScreen) {
+                        NavigationLink(destination: SlotSpinner()) {
+                            SettingRowView(imageName: slotSpinnerIcon, title: slotSpinnerTitle, tintColor: .black)
+                        }
+                        .padding(.top, 1)
+                    }
+                    
+                    Divider()
+                    
+                    Section(sessionAccount) {
+                        Button {
+                            showAlert.toggle()
+                            
+                        } label: {
+                            SettingRowView(imageName: signOutIcon, title: signOutTitle, tintColor: .red)
+                        }
+                        .modifier(AlertModifier(isShowingAlert: $showAlert, title: logoutAlert, message: logoutMessage, primaryButtonTitle: noButton, secondaryButtonTitle: yesButton, primaryAction: { self.showAlert = false }, secondaryAction: {  viewModel.signOut()}))
+                        .padding(.top, 1)
+                    }
                 }
-                .modifier(AlertModifier(isShowingAlert: $showAlert, title: "Logout Alert", message: "Sure you want to logout ?", primaryButtonTitle: "No", secondaryButtonTitle: "Yes", primaryAction: { self.showAlert = false }, secondaryAction: {  viewModel.signOut()}))
+                .padding()
             }
         }
     }
@@ -103,4 +110,3 @@ struct ProfileUIView: View {
     ProfileUIView(profile: UserProfile.MOCK_USER)
         .environmentObject(ModelData())
 }
-
