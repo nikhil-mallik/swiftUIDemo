@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D2F38932B15D58600178365 /* SwiftDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F38922B15D58600178365 /* SwiftDataDemo.swift */; };
+		7D2F38952B15D78900178365 /* SwiftDataUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F38942B15D78900178365 /* SwiftDataUserData.swift */; };
+		7D2F38972B160C9C00178365 /* ProfileUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F38962B160C9C00178365 /* ProfileUpdate.swift */; };
 		7D5DE7582AFB56BF00E63768 /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DE7572AFB56BF00E63768 /* AlertModifier.swift */; };
 		7D5DE75A2AFB988000E63768 /* ConstantFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DE7592AFB988000E63768 /* ConstantFile.swift */; };
 		7D5DE75C2AFB9EF700E63768 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DE75B2AFB9EF700E63768 /* Validator.swift */; };
@@ -61,6 +64,10 @@
 /* Begin PBXFileReference section */
 		0B31098092571089D99C0167 /* Pods-SwiftUIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUIDemo/Pods-SwiftUIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		37BCDB78EFED3E59F9BD789A /* Pods-SwiftUIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIDemo.release.xcconfig"; path = "Target Support Files/Pods-SwiftUIDemo/Pods-SwiftUIDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7D2F38922B15D58600178365 /* SwiftDataDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataDemo.swift; sourceTree = "<group>"; };
+		7D2F38942B15D78900178365 /* SwiftDataUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataUserData.swift; sourceTree = "<group>"; };
+		7D2F38962B160C9C00178365 /* ProfileUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdate.swift; sourceTree = "<group>"; };
+		7D3E83152B18995E007ED35E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7D5DE7572AFB56BF00E63768 /* AlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
 		7D5DE7592AFB988000E63768 /* ConstantFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantFile.swift; sourceTree = "<group>"; };
 		7D5DE75B2AFB9EF700E63768 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -142,6 +149,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7D2F38912B15D51500178365 /* SwiftDataDemo */ = {
+			isa = PBXGroup;
+			children = (
+				7D2F38922B15D58600178365 /* SwiftDataDemo.swift */,
+			);
+			path = SwiftDataDemo;
+			sourceTree = "<group>";
+		};
 		7DB1F52E2AFB448A00E0623E = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +178,7 @@
 		7DB1F5392AFB448A00E0623E /* SwiftUIDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7D3E83152B18995E007ED35E /* Info.plist */,
 				7DB1F54C2AFB46EB00E0623E /* App */,
 				7DB1F54B2AFB46E900E0623E /* Component */,
 				7DB1F54A2AFB46E700E0623E /* Core */,
@@ -198,6 +214,7 @@
 				7DB1F55A2AFB47E000E0623E /* Landmark.swift */,
 				7DB1F55C2AFB47E000E0623E /* ModelData.swift */,
 				7DB1F55B2AFB47E000E0623E /* ProfileView.swift */,
+				7D2F38942B15D78900178365 /* SwiftDataUserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,7 +222,6 @@
 		7DB1F54A2AFB46E700E0623E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				7DE642B32B0CB72B004A79AA /* Slot Spinner */,
 				7DB1F5542AFB475F00E0623E /* Root */,
 				7DB1F5532AFB475B00E0623E /* Authentication */,
 				7DB1F5522AFB475700E0623E /* Categories */,
@@ -214,6 +230,8 @@
 				7DB1F54F2AFB475000E0623E /* Badges */,
 				7DB1F54E2AFB474E00E0623E /* Hikes */,
 				7DB1F54D2AFB473F00E0623E /* Dashboard */,
+				7DE642B32B0CB72B004A79AA /* Slot Spinner */,
+				7D2F38912B15D51500178365 /* SwiftDataDemo */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -281,6 +299,7 @@
 				7DB1F5932AFB489300E0623E /* ProfileEditor.swift */,
 				7DB1F5962AFB489300E0623E /* ProfileHost.swift */,
 				7DB1F5952AFB489300E0623E /* ProfileUIView.swift */,
+				7D2F38962B160C9C00178365 /* ProfileUpdate.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -497,6 +516,7 @@
 				7D5DE75A2AFB988000E63768 /* ConstantFile.swift in Sources */,
 				7DB1F5902AFB488000E0623E /* CategoryRow.swift in Sources */,
 				7DB1F56A2AFB480500E0623E /* MapView.swift in Sources */,
+				7D2F38952B15D78900178365 /* SwiftDataUserData.swift in Sources */,
 				7DB1F55F2AFB47E000E0623E /* ProfileView.swift in Sources */,
 				7DB1F5922AFB488000E0623E /* CategoryItem.swift in Sources */,
 				7DB1F5A02AFB48A300E0623E /* LandmarkDetail.swift in Sources */,
@@ -507,6 +527,7 @@
 				7DB1F57A2AFB483700E0623E /* HikeBadge.swift in Sources */,
 				7DB1F5AA2AFB48BE00E0623E /* GraphCapsule.swift in Sources */,
 				7DB1F59F2AFB48A300E0623E /* LandmarkRow.swift in Sources */,
+				7D2F38932B15D58600178365 /* SwiftDataDemo.swift in Sources */,
 				7DB1F5792AFB483700E0623E /* Badge.swift in Sources */,
 				7DB1F58C2AFB487200E0623E /* LoginViewModel.swift in Sources */,
 				7DB1F5A22AFB48B100E0623E /* Dashboard.swift in Sources */,
@@ -518,6 +539,7 @@
 				7DB1F5772AFB483700E0623E /* BadgeBackground.swift in Sources */,
 				7DB1F5602AFB47E000E0623E /* ModelData.swift in Sources */,
 				7DB1F5872AFB486200E0623E /* SignUpView.swift in Sources */,
+				7D2F38972B160C9C00178365 /* ProfileUpdate.swift in Sources */,
 				7DB1F5822AFB485100E0623E /* LoginUI.swift in Sources */,
 				7DB1F5682AFB480500E0623E /* SettingRowView.swift in Sources */,
 				7DB1F59A2AFB489300E0623E /* ProfileHost.swift in Sources */,
@@ -664,9 +686,9 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -694,9 +716,9 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct SlotSpinner: View {
     
     @State private var images = ["twinlake", "rainbowlake", "umbagog"]
@@ -47,8 +48,6 @@ struct SlotSpinner: View {
                     .background(showAnnimation ? Color.green.opacity(0.5) : backgrounds[0].opacity(0.5))
                     .cornerRadius(20.0)
                     .scaleEffect(showAnnimation ? 1.2 : 1)
-                    
-                    
                 
                 // Spacer
                 Spacer()
@@ -95,7 +94,7 @@ struct SlotSpinner: View {
                         .modifier(AlertModifier(isShowingAlert: $showAlert, title: wonTitle, message: gotMatch, primaryButtonTitle: okButton, secondaryButtonTitle: nil, primaryAction: {
                             self.showAlert = false
                             self.processSpinResult()
-                       }, secondaryAction: nil))
+                        }, secondaryAction: nil))
                         
                         // Text
                         Text("\(betAmount) credits")
@@ -157,8 +156,8 @@ struct SlotSpinner: View {
         
         //Check winnings
         processWin(isMax)
-        
     }
+    
     func processWin(_ isMax:Bool = false) {
         
         var matches = 0
@@ -206,6 +205,7 @@ struct SlotSpinner: View {
             self.credits -= betAmount * 5
         }
     }
+    
     func isMatch(_ index1:Int, _ index2:Int, _ index3:Int) -> Bool {
         
         if self.numbers[index1] == self.numbers[index2] && self.numbers[index2] == self.numbers[index3] {
@@ -216,7 +216,7 @@ struct SlotSpinner: View {
             self.backgrounds[index3] = Color.green
             
             // Showing the alert
-//            self.showAlert = true
+            self.showAlert = true
             
             return true
         }

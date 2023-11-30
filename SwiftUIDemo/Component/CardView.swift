@@ -38,6 +38,7 @@ struct CardView: View {
         .background(background.opacity(0.5))
         .clipShape(.buttonBorder)
         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+        
     }
 }
 

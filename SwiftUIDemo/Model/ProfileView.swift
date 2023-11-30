@@ -14,7 +14,9 @@ struct Profile {
     var seasonalPhoto = Season.winter
     var goalDate = Date()
     
-    static let `default` = Profile(username: "Nikhil Mallik")
+    static let `default` = Profile(
+        username: "Nikhil Mallik"
+    )
     
     enum Season: String, CaseIterable, Identifiable {
         case spring = "🌷"
@@ -22,7 +24,9 @@ struct Profile {
         case autumn = "🍂"
         case winter = "☃️"
         
-        var id: String { rawValue }
+        var id: String {
+            rawValue
+        }
     }
 }
 
@@ -34,16 +38,25 @@ struct User: Identifiable, Codable {
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
-        if let components = formatter.personNameComponents(from: fullname) {
+        if let components = formatter.personNameComponents(
+            from: fullname
+        ) {
             formatter.style = .abbreviated
-            return formatter.string(from: components)
+            return formatter.string(
+                from: components
+            )
         }
         return ""
     }
 }
 
 extension User {
-    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Nikhil", email: "nikhil@gmail.com", confirmPassword: "Nm@123")
+    static var MOCK_USER = User(
+        id: NSUUID().uuidString,
+        fullname: "Nikhil",
+        email: "nikhil@gmail.com",
+        confirmPassword: "Nm@123"
+    )
 }
 
 struct UserProfile: Identifiable, Codable {
@@ -55,23 +68,34 @@ struct UserProfile: Identifiable, Codable {
     let email: String
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
-        if let components = formatter.personNameComponents(from: fullname) {
+        if let components = formatter.personNameComponents(
+            from: fullname
+        ) {
             formatter.style = .abbreviated
-            return formatter.string(from: components)
+            return formatter.string(
+                from: components
+            )
         }
         return ""
     }
-        
+    
     enum Season: String, CaseIterable, Identifiable, Codable {
         case spring = "🌷"
         case summer = "🌞"
         case autumn = "🍂"
         case winter = "☃️"
-    
-        var id: String { rawValue }
+        
+        var id: String {
+            rawValue
+        }
     }
 }
 extension UserProfile {
-    static var MOCK_USER = UserProfile(id: NSUUID().uuidString, seasonalPhoto: .winter, fullname: "Nikhil Mallik", email: "nikhil@gmail.com")
+    static var MOCK_USER = UserProfile(
+        id: NSUUID().uuidString,
+        seasonalPhoto: .winter,
+        fullname: "Nikhil Mallik",
+        email: "nikhil@gmail.com"
+    )
 }
 

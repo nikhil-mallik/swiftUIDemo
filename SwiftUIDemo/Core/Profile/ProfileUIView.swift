@@ -6,51 +6,65 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProfileUIView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var modelData: ModelData
+    @Environment(\.dismiss) private var dismiss
     @State private var showAlert = false
     var profile: UserProfile
     
     var body: some View {
-        if let user = viewModel.currentUser {
+        
+        if let user = viewModel.currentUser  {
             ScrollView {
                 VStack(alignment: .leading) {
                     Section {
-                        HStack(spacing: 4) {
-//                            Text(UserProfile.MOCK_USER.initials)
-                            Text(user.initials)
-                                .font(.title)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(Color(.white))
-                                .frame(width: 72, height: 72)
-                                .background(Color(.systemGray))
-                                .clipShape(Circle())
-                            
-                            VStack(alignment: .leading, spacing: 4 ) {
-//                                Text(UserProfile.MOCK_USER.fullname)
-                                Text(user.fullname)
-                                    .font(.subheadline)
+                        HStack {
+                            HStack(spacing: 4) {
+//                                Text(userData.MOCK_USER.initials)
+                                Text(user.initials)
+                                    .font(.title)
                                     .fontWeight(.semibold)
-                                    .padding(.top, 4)
-//                                Text(UserProfile.MOCK_USER.email)
-                                Text(user.email)
-                                    .font(.footnote)
-                                    .foregroundStyle(Color(.gray))
+                                    .foregroundStyle(Color(.white))
+                                    .frame(width: 72, height: 72)
+                                    .background(Color(.systemGray))
+                                    .clipShape(Circle())
+                                
+                                VStack(alignment: .leading, spacing: 4 ) {
+//                                    Text(userData.MOCK_USER.fullname)
+                                    Text(user.fullname)
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                        .padding(.top, 4)
+//                                    Text(userData.MOCK_USER.email)
+                                    Text(user.email)
+                                        .font(.footnote)
+                                        .foregroundStyle(Color(.gray))
+                                }
                             }
+                            // Code for Navigation to Edit profile page.
+//                            Spacer()
+//                            NavigationLink(
+//                                destination: ProfileUpdate(profile: profile)
+//                            ) {
+//                                Image(
+//                                    systemName: "pencil"
+//                                )
+//                            }
                         }
                     }
                     
-                    //                Divider()
-                    //
-                    //                Section {
-                    //                    VStack(alignment: .leading, spacing: 4 ) {
-                    //                        Text("Notifications: \(profile.prefersNotifications ? "On" : "Off")")
-                    //                        Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
-                    //                        Text("Goal Date: ") + Text(profile.goalDate, style: .date)
-                    //                    }
-                    //                }
+                    Divider()
+                    
+                    Section {
+                        VStack(alignment: .leading, spacing: 4 ) {
+                            Text("Notifications: \(profile.prefersNotifications ? "On" : "Off")")
+                            Text("Seasonal Photos: \(profile.seasonalPhoto.rawValue)")
+                            Text("Goal Date: ") + Text(profile.goalDate, style: .date)
+                        }
+                    }
                     
                     Divider()
                     
@@ -82,6 +96,11 @@ struct ProfileUIView: View {
                     Section(sessionAdditionalScreen) {
                         NavigationLink(destination: SlotSpinner()) {
                             SettingRowView(imageName: slotSpinnerIcon, title: slotSpinnerTitle, tintColor: .black)
+                        }
+                        .padding(.top, 1)
+                        
+                        NavigationLink(destination: SwiftDataDemo()) {
+                            SettingRowView(imageName: swiftDataIcon, title: swiftDataDemoTitle, tintColor: .black)
                         }
                         .padding(.top, 1)
                     }
