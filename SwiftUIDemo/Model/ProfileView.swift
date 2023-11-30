@@ -7,29 +7,6 @@
 
 import Foundation
 
-
-struct Profile {
-    var username: String
-    var prefersNotifications = true
-    var seasonalPhoto = Season.winter
-    var goalDate = Date()
-    
-    static let `default` = Profile(
-        username: "Nikhil Mallik"
-    )
-    
-    enum Season: String, CaseIterable, Identifiable {
-        case spring = "🌷"
-        case summer = "🌞"
-        case autumn = "🍂"
-        case winter = "☃️"
-        
-        var id: String {
-            rawValue
-        }
-    }
-}
-
 struct User: Identifiable, Codable {
     let id: String
     let fullname: String
@@ -48,15 +25,6 @@ struct User: Identifiable, Codable {
         }
         return ""
     }
-}
-
-extension User {
-    static var MOCK_USER = User(
-        id: NSUUID().uuidString,
-        fullname: "Nikhil",
-        email: "nikhil@gmail.com",
-        confirmPassword: "Nm@123"
-    )
 }
 
 struct UserProfile: Identifiable, Codable {
@@ -90,12 +58,3 @@ struct UserProfile: Identifiable, Codable {
         }
     }
 }
-extension UserProfile {
-    static var MOCK_USER = UserProfile(
-        id: NSUUID().uuidString,
-        seasonalPhoto: .winter,
-        fullname: "Nikhil Mallik",
-        email: "nikhil@gmail.com"
-    )
-}
-
