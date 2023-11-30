@@ -5,29 +5,33 @@
 //  Created by Nikhil Mallik on 07/11/23.
 //
 
-import Foundation
+import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import SwiftData
 
 @MainActor
 class AuthViewModel: ObservableObject {
+    @Environment(\.modelContext) private var context
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     @Published var errorMessage: String?
+    @Published var currentUserId: String?
     
     init() {
         self.userSession = Auth.auth().currentUser
-        
+        self.currentUserId = Auth.auth().currentUser?.uid
         Task {
             await fetchUser()
         }
     }
-    
+
     func signIn(withEmail email: String, password: String) async {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
+            self.currentUserId = result.user.uid
             await fetchUser()
         } catch {
             errorMessage = "\(loginFailed) \n\(error.localizedDescription)"
@@ -38,6 +42,7 @@ class AuthViewModel: ObservableObject {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
+            self.currentUserId = result.user.uid
             let user = User(id: result.user.uid, fullname: fullname, email: email, confirmPassword: confirmpassword)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("Users").document(user.id).setData(encodedUser)

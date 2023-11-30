@@ -18,6 +18,7 @@ struct SignUpUI: View {
     @State private var isPasswordSecure = true
     @State private var isConfirmPasswordSecure = true
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var context
     @EnvironmentObject var viewModel: AuthViewModel
    
     var body: some View {
@@ -74,6 +75,7 @@ struct SignUpUI: View {
             if validateInputs(fullname: fullname, email: email, password: password, confirmpassword: confirmpassword, viewModel: viewModel, alertMessage: &alertMessage, showAlert: &showAlert) {
                 Task {
                     await viewModel.createUser(withEmail: email, password: password, fullname: fullname, confirmpassword: confirmpassword)
+                    addUserData()
                     self.showAlert = true
                 }
             }
@@ -106,6 +108,21 @@ struct SignUpUI: View {
             .font(.system(size: 14))
         }
     }
+    
+    // storing data in swiftData
+    func addUserData() {
+        let userData = SwiftDataUserData(
+            id: viewModel.currentUser!.id,
+            prefersNotifications: true,
+            seasonalPhoto: .winter,
+            goalDate: Date.now,
+            fullname: viewModel.currentUser!.fullname,
+            email: viewModel.currentUser!.fullname
+        )
+        
+        context.insert(userData)
+    }
+    
 }
 
 #Preview {
