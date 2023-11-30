@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ProfileEditor: View {
     @Binding var profile: UserProfile
     
@@ -22,7 +23,6 @@ struct ProfileEditor: View {
                 Text("Username").bold()
                 Divider()
                 TextField("Username", text: $profile.fullname)
-//                TextField("Username", text: $profile.username)
             }
             
             Toggle(isOn: $profile.prefersNotifications) {

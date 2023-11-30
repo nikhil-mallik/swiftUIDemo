@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import Firebase
 
 @main
@@ -14,6 +15,7 @@ struct SwiftUIDemoApp: App {
     
     init() {
         FirebaseApp.configure()
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }
     
     var body: some Scene {
@@ -21,5 +23,6 @@ struct SwiftUIDemoApp: App {
             ContentView()
                 .environmentObject(viewModel)
         }
+        .modelContainer(for: SwiftDataUserData.self)
     }
 }
