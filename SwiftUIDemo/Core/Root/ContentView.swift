@@ -20,6 +20,9 @@ struct ContentView: View {
                 LoginUI()
             }
         }
+        .onAppear {
+            UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        }
        
     }
 }
