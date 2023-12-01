@@ -71,8 +71,8 @@ struct ProfileUpdate: View {
             }
         }
         .onAppear {
-            fname = profile.fullname
-            email = profile.email
+            fname = profile.user.fullname
+            email = profile.user.email
             prefersNotification = profile.prefersNotifications
 //            seasonPhoto = profile.seasonalPhoto
             goalDate = profile.goalDate
@@ -96,6 +96,6 @@ struct ProfileUpdate: View {
     
 }
 
-//#Preview {
-//    ProfileUpdate(profile: userData.MOCK_USER)
-//}
+#Preview {
+    ProfileUpdate(profile: UserProfile.MOCK_USER)
+}

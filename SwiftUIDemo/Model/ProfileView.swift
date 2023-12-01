@@ -9,10 +9,9 @@ import Foundation
 
 struct User: Identifiable, Codable {
     let id: String
-    let fullname: String
-    let email: String
-//    let confirmPassword: String?
-    
+    var fullname: String
+    var email: String
+
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
         if let components = formatter.personNameComponents(
@@ -25,37 +24,60 @@ struct User: Identifiable, Codable {
         }
         
         return ""
+    }
+    
+    init(
+        id: String,
+        fullname: String,
+        email: String
+    ) {
+        self.id = id
+        self.fullname = fullname
+        self.email = email
     }
 }
 
 struct UserProfile: Identifiable, Codable {
+    var user: User
     let id: String
     var prefersNotifications = true
     var seasonalPhoto: Season
     var goalDate = Date()
-    var fullname: String
-    let email: String
-    var initials: String {
-        let formatter = PersonNameComponentsFormatter()
-        if let components = formatter.personNameComponents(
-            from: fullname
-        ) {
-            formatter.style = .abbreviated
-            return formatter.string(
-                from: components
-            )
-        }
-        return ""
+    
+    init(
+        user: User,
+        id: String,
+        prefersNotifications: Bool = true,
+        seasonalPhoto: Season = .winter,
+        goalDate: Date = Date.now
+    ) {
+        self.user = user
+        self.id = id
+        self.prefersNotifications = prefersNotifications
+        self.seasonalPhoto = seasonalPhoto
+        self.goalDate = goalDate
     }
     
-    enum Season: String, CaseIterable, Identifiable, Codable {
-        case spring = "🌷"
-        case summer = "🌞"
-        case autumn = "🍂"
-        case winter = "☃️"
-        
-        var id: String {
-            rawValue
+}
+
+enum Season: String, CaseIterable, Identifiable, Codable {
+    case spring , summer, autumn, winter
+    
+    var id: String {
+        self.rawValue
+    }
+    var descr: String {
+        switch self {
+        case .spring:
+            "🌷"
+        case .summer:
+            "🌞"
+        case .autumn:
+            "🍂"
+        case .winter:
+            "☃️"
         }
     }
 }
+
+
