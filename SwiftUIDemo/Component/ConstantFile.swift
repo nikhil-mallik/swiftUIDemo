@@ -26,6 +26,7 @@ var formatMatchRegex = "SELF MATCHES %@"
 
 // Alert Button Constant
 var alertTitle = "Alert"
+var alertErrorTitle = "Application Error"
 var okButton = "OK"
 var cancelButton = "CANCEL"
 var yesButton = "YES"

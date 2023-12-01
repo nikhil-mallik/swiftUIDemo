@@ -33,8 +33,8 @@ class SwiftDataUserData: Identifiable, ObservableObject {
     init(
         id: String,
         prefersNotifications: Bool,
-        seasonalPhoto: Season,
-        goalDate: Date,
+        seasonalPhoto: Season = .winter,
+        goalDate: Date = Date.now,
         fullname: String,
         email: String
     ) {
@@ -47,22 +47,4 @@ class SwiftDataUserData: Identifiable, ObservableObject {
     }
     
 }
-enum Season: String, CaseIterable, Identifiable, Codable {
-    case spring , summer, autumn = "🍂", winter = "☃️"
-    
-    var id: Self {
-        self
-    }
-    var descr: String {
-        switch self {
-        case .spring:
-            "🌷"
-        case .summer:
-            "🌞"
-        case .autumn:
-            "🍂"
-        case .winter:
-            "☃️"
-        }
-    }
-}
+

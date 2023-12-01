@@ -25,35 +25,6 @@ extension AnyTransition {
     }
 }
 
-// MOCK Data Extension
-extension User {
-    static var MOCK_USER = User(
-        id: NSUUID().uuidString,
-        fullname: "Nikhil",
-        email: "nikhil@gmail.com"
-    )
-}
-
-extension UserProfile {
-    static var MOCK_USER = UserProfile(
-        id: NSUUID().uuidString,
-        seasonalPhoto: .winter,
-        fullname: "Nikhil Mallik",
-        email: "nikhil@gmail.com"
-    )
-}
-
-extension SwiftDataUserData {
-    static var MOCK_USER = SwiftDataUserData(
-        id: NSUUID().uuidString,
-        prefersNotifications: true,
-        seasonalPhoto: .winter,
-        goalDate: Date.now,
-        fullname: "Default user",
-        email: "default@gmail.com"
-    )
-}
-
 // Validation Extension
 extension String {
     func isValidEmail() -> String? {
@@ -90,3 +61,42 @@ extension String {
         }
     }
 }
+
+// Extension for API to decode the data
+
+extension Bundle {
+    public func decode<T: Decodable>(
+        _ type: T.Type,
+        from file: String,
+        dateDecodingStategy: JSONDecoder.DateDecodingStrategy = .deferredToDate,
+        keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys ) -> T {
+        guard let url = self.url(
+            forResource: file,
+            withExtension: nil
+        ) else {
+            fatalError(
+                "Failed to locate \(file) in bundle."
+            )
+        }
+        guard let data = try? Data(
+            contentsOf: url
+        ) else {
+            fatalError(
+                "Failed to load \(file) from bundle."
+            )
+        }
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = keyDecodingStrategy
+        decoder.dateDecodingStrategy = dateDecodingStategy
+        guard let decodedData = try? decoder.decode(
+            T.self,
+            from: data
+        ) else {
+            fatalError(
+                "Failed to decode \(file) from bundle."
+            )
+        }
+        return decodedData
+    }
+}
+
