@@ -10,6 +10,7 @@ import SwiftData
 
 @Model
 class SwiftDataUserData: Identifiable, ObservableObject {
+    
     let id: String
     var prefersNotifications: Bool
     var seasonalPhoto: Season
@@ -28,7 +29,7 @@ class SwiftDataUserData: Identifiable, ObservableObject {
         }
         return ""
     }
-
+    
     init(
         id: String,
         prefersNotifications: Bool,
@@ -64,15 +65,4 @@ enum Season: String, CaseIterable, Identifiable, Codable {
             "☃️"
         }
     }
-}
-
-extension SwiftDataUserData {
-    static var MOCK_USER = SwiftDataUserData(
-        id: "",
-        prefersNotifications: true,
-        seasonalPhoto: .winter,
-        goalDate: Date.now,
-        fullname: "Default user",
-        email: "default@gmail.com"
-    )
 }

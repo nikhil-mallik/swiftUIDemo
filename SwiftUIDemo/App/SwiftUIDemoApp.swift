@@ -24,5 +24,6 @@ struct SwiftUIDemoApp: App {
                 .environmentObject(viewModel)
         }
         .modelContainer(for: SwiftDataUserData.self)
+        
     }
 }

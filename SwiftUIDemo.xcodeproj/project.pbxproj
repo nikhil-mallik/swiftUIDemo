@@ -10,6 +10,8 @@
 		7D2F38932B15D58600178365 /* SwiftDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F38922B15D58600178365 /* SwiftDataDemo.swift */; };
 		7D2F38952B15D78900178365 /* SwiftDataUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F38942B15D78900178365 /* SwiftDataUserData.swift */; };
 		7D2F38972B160C9C00178365 /* ProfileUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F38962B160C9C00178365 /* ProfileUpdate.swift */; };
+		7D3E83182B18A57B007ED35E /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E83172B18A57B007ED35E /* ApiURL.swift */; };
+		7D3E831A2B18B145007ED35E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E83192B18B145007ED35E /* Extension.swift */; };
 		7D5DE7582AFB56BF00E63768 /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DE7572AFB56BF00E63768 /* AlertModifier.swift */; };
 		7D5DE75A2AFB988000E63768 /* ConstantFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DE7592AFB988000E63768 /* ConstantFile.swift */; };
 		7D5DE75C2AFB9EF700E63768 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DE75B2AFB9EF700E63768 /* Validator.swift */; };
@@ -39,7 +41,6 @@
 		7DB1F5872AFB486200E0623E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5842AFB486200E0623E /* SignUpView.swift */; };
 		7DB1F5882AFB486200E0623E /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5852AFB486200E0623E /* SignUpUI.swift */; };
 		7DB1F58B2AFB487200E0623E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5892AFB487100E0623E /* AuthViewModel.swift */; };
-		7DB1F58C2AFB487200E0623E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F58A2AFB487200E0623E /* LoginViewModel.swift */; };
 		7DB1F5902AFB488000E0623E /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F58D2AFB488000E0623E /* CategoryRow.swift */; };
 		7DB1F5912AFB488000E0623E /* CategoryHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F58E2AFB488000E0623E /* CategoryHome.swift */; };
 		7DB1F5922AFB488000E0623E /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F58F2AFB488000E0623E /* CategoryItem.swift */; };
@@ -68,6 +69,8 @@
 		7D2F38942B15D78900178365 /* SwiftDataUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataUserData.swift; sourceTree = "<group>"; };
 		7D2F38962B160C9C00178365 /* ProfileUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdate.swift; sourceTree = "<group>"; };
 		7D3E83152B18995E007ED35E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7D3E83172B18A57B007ED35E /* ApiURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
+		7D3E83192B18B145007ED35E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		7D5DE7572AFB56BF00E63768 /* AlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
 		7D5DE7592AFB988000E63768 /* ConstantFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantFile.swift; sourceTree = "<group>"; };
 		7D5DE75B2AFB9EF700E63768 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -98,7 +101,6 @@
 		7DB1F5842AFB486200E0623E /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		7DB1F5852AFB486200E0623E /* SignUpUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		7DB1F5892AFB487100E0623E /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		7DB1F58A2AFB487200E0623E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7DB1F58D2AFB488000E0623E /* CategoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		7DB1F58E2AFB488000E0623E /* CategoryHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHome.swift; sourceTree = "<group>"; };
 		7DB1F58F2AFB488000E0623E /* CategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
@@ -157,6 +159,15 @@
 			path = SwiftDataDemo;
 			sourceTree = "<group>";
 		};
+		7D3E83162B18A550007ED35E /* Json Data */ = {
+			isa = PBXGroup;
+			children = (
+				7DB1F56B2AFB481400E0623E /* hikeData.json */,
+				7DB1F56C2AFB481400E0623E /* landmarkData.json */,
+			);
+			path = "Json Data";
+			sourceTree = "<group>";
+		};
 		7DB1F52E2AFB448A00E0623E = {
 			isa = PBXGroup;
 			children = (
@@ -201,8 +212,8 @@
 		7DB1F5482AFB46E100E0623E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				7DB1F56B2AFB481400E0623E /* hikeData.json */,
-				7DB1F56C2AFB481400E0623E /* landmarkData.json */,
+				7D3E83162B18A550007ED35E /* Json Data */,
+				7D3E83172B18A57B007ED35E /* ApiURL.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -249,6 +260,7 @@
 				7D5DE75B2AFB9EF700E63768 /* Validator.swift */,
 				7DE642B62B0CD858004A79AA /* CardView.swift */,
 				7DE642B82B0CDB53004A79AA /* RectangleBg.swift */,
+				7D3E83192B18B145007ED35E /* Extension.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -345,7 +357,6 @@
 			isa = PBXGroup;
 			children = (
 				7DB1F5892AFB487100E0623E /* AuthViewModel.swift */,
-				7DB1F58A2AFB487200E0623E /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -522,6 +533,7 @@
 				7DB1F5A02AFB48A300E0623E /* LandmarkDetail.swift in Sources */,
 				7DB1F5752AFB483700E0623E /* BadgeSymbol.swift in Sources */,
 				7DB1F53B2AFB448A00E0623E /* SwiftUIDemoApp.swift in Sources */,
+				7D3E83182B18A57B007ED35E /* ApiURL.swift in Sources */,
 				7DB1F5972AFB489300E0623E /* ProfileEditor.swift in Sources */,
 				7DB1F5672AFB480500E0623E /* InputView.swift in Sources */,
 				7DB1F57A2AFB483700E0623E /* HikeBadge.swift in Sources */,
@@ -529,7 +541,6 @@
 				7DB1F59F2AFB48A300E0623E /* LandmarkRow.swift in Sources */,
 				7D2F38932B15D58600178365 /* SwiftDataDemo.swift in Sources */,
 				7DB1F5792AFB483700E0623E /* Badge.swift in Sources */,
-				7DB1F58C2AFB487200E0623E /* LoginViewModel.swift in Sources */,
 				7DB1F5A22AFB48B100E0623E /* Dashboard.swift in Sources */,
 				7DB1F5A82AFB48BE00E0623E /* HikeGraph.swift in Sources */,
 				7DB1F5A72AFB48BE00E0623E /* HikeDetail.swift in Sources */,
@@ -545,6 +556,7 @@
 				7DB1F59A2AFB489300E0623E /* ProfileHost.swift in Sources */,
 				7DB1F58B2AFB487200E0623E /* AuthViewModel.swift in Sources */,
 				7DB1F5692AFB480500E0623E /* CircleImage.swift in Sources */,
+				7D3E831A2B18B145007ED35E /* Extension.swift in Sources */,
 				7DE642B52B0CB750004A79AA /* SlotSpinner.swift in Sources */,
 				7DB1F5802AFB485100E0623E /* LoginScreen.swift in Sources */,
 				7DE642B72B0CD858004A79AA /* CardView.swift in Sources */,
@@ -691,6 +703,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -721,6 +734,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

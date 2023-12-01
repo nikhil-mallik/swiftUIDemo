@@ -23,7 +23,7 @@ struct ProfileUIView: View {
                     Section {
                         HStack {
                             HStack(spacing: 4) {
-//                                Text(userData.MOCK_USER.initials)
+                                //                                Text(userData.MOCK_USER.initials)
                                 Text(user.initials)
                                     .font(.title)
                                     .fontWeight(.semibold)
@@ -33,26 +33,26 @@ struct ProfileUIView: View {
                                     .clipShape(Circle())
                                 
                                 VStack(alignment: .leading, spacing: 4 ) {
-//                                    Text(userData.MOCK_USER.fullname)
+                                    //                                    Text(userData.MOCK_USER.fullname)
                                     Text(user.fullname)
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
                                         .padding(.top, 4)
-//                                    Text(userData.MOCK_USER.email)
+                                    //                                    Text(userData.MOCK_USER.email)
                                     Text(user.email)
                                         .font(.footnote)
                                         .foregroundStyle(Color(.gray))
                                 }
                             }
                             // Code for Navigation to Edit profile page.
-//                            Spacer()
-//                            NavigationLink(
-//                                destination: ProfileUpdate(profile: profile)
-//                            ) {
-//                                Image(
-//                                    systemName: "pencil"
-//                                )
-//                            }
+                            //                            Spacer()
+                            //                            NavigationLink(
+                            //                                destination: ProfileUpdate(profile: profile)
+                            //                            ) {
+                            //                                Image(
+                            //                                    systemName: "pencil"
+                            //                                )
+                            //                            }
                         }
                     }
                     
@@ -120,7 +120,7 @@ struct ProfileUIView: View {
                 }
                 .padding()
             }
-        }
+        } 
     }
 }
 
