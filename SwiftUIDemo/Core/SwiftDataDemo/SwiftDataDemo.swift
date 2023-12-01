@@ -13,7 +13,8 @@ struct SwiftDataDemo: View {
     
     @Environment(\.modelContext) private var context
     @Query(sort: \SwiftDataUserData.id) private var items: [SwiftDataUserData]
-
+    
+    
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {

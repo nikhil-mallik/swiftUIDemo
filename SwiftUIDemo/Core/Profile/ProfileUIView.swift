@@ -102,6 +102,11 @@ struct ProfileUIView: View {
                         NavigationLink(destination: SwiftDataDemo()) {
                             SettingRowView(imageName: swiftDataIcon, title: swiftDataDemoTitle, tintColor: .black)
                         }
+                        .padding(.top, 1) 
+                        
+                        NavigationLink(destination: UsersListView()) {
+                            SettingRowView(imageName: swiftDataIcon, title: "API Demo", tintColor: .black)
+                        }
                         .padding(.top, 1)
                     }
                     
