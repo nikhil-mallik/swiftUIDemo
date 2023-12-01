@@ -11,7 +11,7 @@ struct User: Identifiable, Codable {
     let id: String
     let fullname: String
     let email: String
-    let confirmPassword: String
+//    let confirmPassword: String?
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
@@ -23,6 +23,7 @@ struct User: Identifiable, Codable {
                 from: components
             )
         }
+        
         return ""
     }
 }

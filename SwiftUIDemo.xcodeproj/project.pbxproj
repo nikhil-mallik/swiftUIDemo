@@ -41,7 +41,6 @@
 		7DB1F5872AFB486200E0623E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5842AFB486200E0623E /* SignUpView.swift */; };
 		7DB1F5882AFB486200E0623E /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5852AFB486200E0623E /* SignUpUI.swift */; };
 		7DB1F58B2AFB487200E0623E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F5892AFB487100E0623E /* AuthViewModel.swift */; };
-		7DB1F58C2AFB487200E0623E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F58A2AFB487200E0623E /* LoginViewModel.swift */; };
 		7DB1F5902AFB488000E0623E /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F58D2AFB488000E0623E /* CategoryRow.swift */; };
 		7DB1F5912AFB488000E0623E /* CategoryHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F58E2AFB488000E0623E /* CategoryHome.swift */; };
 		7DB1F5922AFB488000E0623E /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1F58F2AFB488000E0623E /* CategoryItem.swift */; };
@@ -102,7 +101,6 @@
 		7DB1F5842AFB486200E0623E /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		7DB1F5852AFB486200E0623E /* SignUpUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		7DB1F5892AFB487100E0623E /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		7DB1F58A2AFB487200E0623E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7DB1F58D2AFB488000E0623E /* CategoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		7DB1F58E2AFB488000E0623E /* CategoryHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHome.swift; sourceTree = "<group>"; };
 		7DB1F58F2AFB488000E0623E /* CategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 			isa = PBXGroup;
 			children = (
 				7DB1F5892AFB487100E0623E /* AuthViewModel.swift */,
-				7DB1F58A2AFB487200E0623E /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -544,7 +541,6 @@
 				7DB1F59F2AFB48A300E0623E /* LandmarkRow.swift in Sources */,
 				7D2F38932B15D58600178365 /* SwiftDataDemo.swift in Sources */,
 				7DB1F5792AFB483700E0623E /* Badge.swift in Sources */,
-				7DB1F58C2AFB487200E0623E /* LoginViewModel.swift in Sources */,
 				7DB1F5A22AFB48B100E0623E /* Dashboard.swift in Sources */,
 				7DB1F5A82AFB48BE00E0623E /* HikeGraph.swift in Sources */,
 				7DB1F5A72AFB48BE00E0623E /* HikeDetail.swift in Sources */,

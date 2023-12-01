@@ -30,8 +30,7 @@ extension User {
     static var MOCK_USER = User(
         id: NSUUID().uuidString,
         fullname: "Nikhil",
-        email: "nikhil@gmail.com",
-        confirmPassword: "Nm@123"
+        email: "nikhil@gmail.com"
     )
 }
 
@@ -46,7 +45,7 @@ extension UserProfile {
 
 extension SwiftDataUserData {
     static var MOCK_USER = SwiftDataUserData(
-        id: "",
+        id: NSUUID().uuidString,
         prefersNotifications: true,
         seasonalPhoto: .winter,
         goalDate: Date.now,
