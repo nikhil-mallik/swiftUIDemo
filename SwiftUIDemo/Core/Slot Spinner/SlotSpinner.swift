@@ -193,6 +193,9 @@ struct SlotSpinner: View {
             // At least 1 win
             self.credits += matches * betAmount * 3
             
+            // Showing the alert
+            self.showAlert = true
+            
             // Annimation effect
             self.showAnnimation = true
             
