@@ -197,6 +197,9 @@ struct SlotSpinner: View {
             // Annimation effect
             self.showAnnimation = true
             
+            // Showing the alert
+            self.showAlert = true
+            
         } else if !isMax {
             // 0 wins, single spin
             self.credits -= betAmount
