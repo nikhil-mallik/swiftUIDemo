@@ -256,7 +256,6 @@
 		7DB1F5392AFB448A00E0623E /* SwiftUIDemo */ = {
 			isa = PBXGroup;
 			children = (
-				7D3E83332B19C272007ED35E /* Services */,
 				7D3E83152B18995E007ED35E /* Info.plist */,
 				7DB1F54C2AFB46EB00E0623E /* App */,
 				7DB1F54B2AFB46E900E0623E /* Component */,
@@ -264,6 +263,7 @@
 				7DB1F5492AFB46E500E0623E /* Model */,
 				7DB1F5482AFB46E100E0623E /* Resource */,
 				7DB1F5402AFB448B00E0623E /* Preview Content */,
+				7D3E83332B19C272007ED35E /* Services */,
 				7DB1F5AB2AFB4ED200E0623E /* GoogleService-Info.plist */,
 			);
 			path = SwiftUIDemo;
